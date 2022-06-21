@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+	  "sourceMap": true,
+	  "target": "ES6",
+	  "module": "ESnext",
+	  "outDir": "public",
+	  "jsx": "react-jsx",
+	  "jsxImportSource": "@emotion/react",
+	  "moduleResolution": "Node",
+	  "lib": ["ES2020", "DOM"],
+	  "allowJs": true,
+	  "allowSyntheticDefaultImports": true
+	},
+	"include": ["src/**/*"],
+	//"exclude": ["./node_modules"],
+}

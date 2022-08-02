@@ -2,7 +2,7 @@ import React, {useState, useEffect } from "react";
 import DropdownList from "react-widgets/DropdownList";
 
 type Props = {
-	setDeviceID: React.Dispatch<React.SetStateAction<string>>
+	setSelectDeviceId: React.Dispatch<React.SetStateAction<string>>
 };
 
 const VideoList: React.FC<Props> = (props) => {
@@ -26,7 +26,7 @@ const VideoList: React.FC<Props> = (props) => {
 				dataKey="deviceId"
 				textField="label"
 				// value={select}
-				onChange={(nextSelect) => props.setDeviceID(nextSelect.deviceId)}
+				onChange={(nextSelect) => props.setSelectDeviceId(nextSelect.deviceId)}
 			/>
 		</>
 	);

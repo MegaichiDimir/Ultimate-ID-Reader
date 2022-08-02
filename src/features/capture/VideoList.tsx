@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import DropdownList from "react-widgets/DropdownList";
 
-const VideoList = (props) => {
-	const [videoDevices, setVideoDevices] = useState([]);
+type Props = {
+	setDeviceID: React.Dispatch<React.SetStateAction<string>>
+};
+
+const VideoList: React.FC<Props> = (props) => {
+	const [videoDevices, setVideoDevices] = useState<MediaDeviceInfo[]>([]);
 
 	// ビデオデバイスの配列をvideoDevicesに格納
 	useEffect(() => {

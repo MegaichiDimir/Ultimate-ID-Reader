@@ -4,10 +4,10 @@ import { css } from "@emotion/react";
 
 import VideoList from "./VideoList";
 
-const Capture = () => {
-	const [deviceID, setDeviceID] = useState(null);
-	const [capImage, setCapImage] = useState(null);
-	const webcamRef = useRef<Webcam>(null);
+const Capture: React.FC = () => {
+	const [deviceID, setDeviceID] = useState<string>('');
+	const [capImage, setCapImage] = useState<string>('');
+	const webcamRef = useRef<Webcam>(null!);
 	const capture = useCallback(
 		() => {
 			const imageSrc = webcamRef.current.getScreenshot(); // imageSrcにBase64形式でpngを格納

@@ -24,24 +24,27 @@ const Capture: React.FC = () => {
 	
 	return (
 		<>
-			<Webcam
-				audio={false}
-				imageSmoothing={false}
-				ref={webcamRef}
-				screenshotFormat={'image/png'}
-				forceScreenshotSourceSize
-				videoConstraints={{
-					width: 1920,
-					height: 1080,
-					facingMode: "user",
-					deviceId: selectDeviceId
-				}}
-				//表示上のサイズ
-				width={640}
-				height={360}
-				css={style}
-
-			/>
+			{selectDeviceId != '' &&
+				<>
+					<Webcam
+						audio={false}
+						imageSmoothing={false}
+						ref={webcamRef}
+						screenshotFormat={'image/png'}
+						forceScreenshotSourceSize
+						videoConstraints={{
+							width: 1920,
+							height: 1080,
+							facingMode: "user",
+							deviceId: selectDeviceId
+						}}
+						//表示上のサイズ
+						width={640}
+						height={360}
+						css={style}
+					/>
+				</>
+			}
 			<button onClick={capture}>Capture photo</button>
 			<VideoList
 				setSelectDeviceId={setSelectDeviceId}

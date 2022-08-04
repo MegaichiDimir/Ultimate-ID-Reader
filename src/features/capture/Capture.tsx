@@ -4,15 +4,19 @@ import { css } from "@emotion/react";
 
 import VideoList from "./VideoList";
 
-const Capture: React.FC = () => {
+type Props = {
+	setCapImage: React.Dispatch<React.SetStateAction<string>>
+}
+
+const Capture: React.FC<Props> = (props) => {
 	const [selectDeviceId, setSelectDeviceId] = useState<string>('');
-	const [capImage, setCapImage] = useState<string>('');
+	//const [capImage, setCapImage] = useState<string>('');
 	const webcamRef = useRef<Webcam>(null!);
 	const capture = useCallback(
 		() => {
 			const imageSrc = webcamRef.current.getScreenshot(); // imageSrcにBase64形式でpngを格納
 			if(imageSrc){
-				setCapImage(imageSrc);
+				props.setCapImage(imageSrc);
 			}
 		},
 		[webcamRef]
@@ -49,7 +53,6 @@ const Capture: React.FC = () => {
 			<VideoList
 				setSelectDeviceId={setSelectDeviceId}
 			/>
-			<img src={capImage} alt="" />
 		</>
 	);
 };

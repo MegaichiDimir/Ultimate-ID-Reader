@@ -8,6 +8,11 @@ type Props = {
 	capImage: string
 }
 
+const idTxt = css`
+	font-size: 1.5em;
+	font-weight: semibold;
+`
+
 const Ocr:React.FC<Props> = (props) => {
 	const [ocrImage, setOcrImage] = useState<string>('');
 	const [roomId, setRoomId] = useState<string>('');
@@ -23,7 +28,7 @@ const Ocr:React.FC<Props> = (props) => {
 			/>
 			<div>
 				<img src={ocrImage} alt="" />
-				<p>ID: {roomId}</p>
+				<p>ID: <span css={idTxt}>{roomId}</span></p>
 			</div>
 		</>
 	)

@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
 	mode: 'development',
@@ -52,4 +53,9 @@ module.exports = {
 		extensions: ['.ts', '.tsx', '.js', '.json'],
 	},
 	target: 'web',
+	plugins: [
+		new webpack.DefinePlugin({
+			'process.browser': 'true'
+		}),
+	],
 };

@@ -1,5 +1,5 @@
-import React, { useState, useRef } from "react";
-import { css } from "@emotion/react";
+import React, { useState } from "react";
+import { Global, css } from "@emotion/react";
 import "react-widgets/scss/styles.scss";
 
 import Capture from "./features/capture/Capture";
@@ -9,19 +9,29 @@ const App: React.FC = () => {
 	//const imageRef = useRef();
 	const [capImage, setCapImage] = useState<string>('');
 
-	const hello = css`
-		color: #38a49d;
+	const global = css`
+		body {
+			margin: 0;
+			padding: 0;
+		}
 	`
+	const root = css`
+		max-width: 800px;
+		margin: 1em auto 0;
+	`
+
 	return(
 		<>
-			<div css={hello}>Hello World</div>
-			<Capture
-				setCapImage={setCapImage}
-			/>
-			<Ocr
-				capImage={capImage}
-			/>
-			<img src={capImage} alt="" />
+			<div css={root} >
+				<Global styles={global} />
+				<Capture
+					setCapImage={setCapImage}
+				/>
+				<Ocr
+					capImage={capImage}
+				/>
+				{/* <img src={capImage} alt="" /> */}
+			</div>
 		</>
 	);
 };

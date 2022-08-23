@@ -49,7 +49,7 @@ const Capture: React.FC<Props> = (props) => {
 					/>
 				</>
 			}
-			<button onClick={capture}>Capture photo</button>
+			<button onClick={capture}>Capture</button>
 			<VideoList
 				setSelectDeviceId={setSelectDeviceId}
 			/>

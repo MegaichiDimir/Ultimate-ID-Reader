@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { css } from "@emotion/react";
 
-import Jimp from "./Jimp";
-import Tesseract from "./Tesseract";
+import ImgProc from "./process/ImgProc";
+import OcrProc from "./process/OcrProc";
 
 type Props = {
 	capImage: string
@@ -13,16 +13,17 @@ const Ocr:React.FC<Props> = (props) => {
 	const [roomId, setRoomId] = useState<string>('');
 	return(
 		<>
-			<Jimp
+			<ImgProc
 				capImage = {props.capImage}
 				setOcrImage = {setOcrImage}
 			/>
-			<Tesseract
+			<OcrProc
 				ocrImage = {ocrImage}
 				setRoomId = {setRoomId}
 			/>
 			<div>
-				{roomId}
+				<img src={ocrImage} alt="" />
+				<p>ID: {roomId}</p>
 			</div>
 		</>
 	)

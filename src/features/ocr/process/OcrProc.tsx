@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { createWorker } from "tesseract.js";
 
 type Props = {
@@ -9,7 +9,14 @@ type Props = {
 const whitelist:string = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 const OcrProc:React.FC<Props> = (props) => {
+	const firstRender = useRef(true);
+
 	useEffect(() => {
+		if(firstRender.current){
+			firstRender.current = false;
+			return;
+		}
+
 		const worker = createWorker({
 			logger: m => console.log(m)
 		});

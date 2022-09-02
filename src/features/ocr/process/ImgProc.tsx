@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Image } from "image-js";
 
 type Props = {
@@ -8,8 +8,15 @@ type Props = {
 
 
 const ImgProc:React.FC<Props> = (props) => {
+	const firstRender = useRef(true);
+
 	// image processing
 	useEffect(() => {
+		if(firstRender.current) {
+			firstRender.current = false;
+			return;
+		}
+		
 		const getTxtImg = async () => {
 			const image = await Image.load(props.capImage);
 			const ocrImg = image

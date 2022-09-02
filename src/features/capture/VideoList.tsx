@@ -10,13 +10,20 @@ const VideoList: React.FC<Props> = (props) => {
 
 	// ビデオデバイスの配列をvideoDevicesに格納
 	useEffect(() => {
-		const getDevice = async () => {
-			const addList = (await navigator.mediaDevices.enumerateDevices())
-    			.filter((device) => device.kind === 'videoinput');
-			console.log(addList);
-			setVideoDevices(addList);
-		}
-		getDevice();
+		const constraints = { audio: false, video: { width: 1920, height: 1080 } };
+		navigator.mediaDevices.getUserMedia(constraints)
+			.then(() => {
+				const getDevice = async () => {
+					const addList = (await navigator.mediaDevices.enumerateDevices())
+						.filter((device) => device.kind === 'videoinput');
+					console.log(addList);
+					setVideoDevices(addList);
+				}
+				getDevice();
+			})
+			.catch((err) => {
+				console.error(err);
+			});
 	}, []);
 	
 	return (

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useCallback } from "react";
 import Webcam from "react-webcam";
-import { css } from "@emotion/react";
+import { css } from "twin.macro";
 
 import VideoList from "./VideoList";
 
@@ -21,10 +21,6 @@ const Capture: React.FC<Props> = (props) => {
 		},
 		[webcamRef]
 	);
-
-	const style = css`
-		
-	`
 	
 	return (
 		<>
@@ -45,7 +41,6 @@ const Capture: React.FC<Props> = (props) => {
 						//表示上のサイズ
 						width={640}
 						height={360}
-						css={style}
 					/>
 				</>
 			}

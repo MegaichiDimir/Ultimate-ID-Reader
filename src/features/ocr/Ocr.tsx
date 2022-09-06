@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { css } from "@emotion/react";
+import { css } from "twin.macro";
 
 import ImgProc from "./process/ImgProc";
 import OcrProc from "./process/OcrProc";

@@ -16,7 +16,7 @@ const ImgProc:React.FC<Props> = (props) => {
 			firstRender.current = false;
 			return;
 		}
-		
+
 		const getTxtImg = async () => {
 			const image = await Image.load(props.capImage);
 			const ocrImg = image
@@ -25,7 +25,7 @@ const ImgProc:React.FC<Props> = (props) => {
 				.crop({x:1798, y:950})
 				.flipY()
 				.grey()	//グレースケール化
-				.mask() //二値化
+				//.mask({threshold:0.6, invert:true}) //二値化
 				.invert() //色反転
 				.toBase64('image/png');
 			props.setOcrImage("data:image/png;base64," + ocrImg);

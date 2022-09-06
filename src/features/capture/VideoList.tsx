@@ -32,7 +32,7 @@ const VideoList: React.FC<Props> = (props) => {
 				data={videoDevices}
 				dataKey="deviceId"
 				textField="label"
-				// value={select}
+				placeholder="キャプチャデバイスを選択"
 				onChange={(nextSelect) => props.setSelectDeviceId(nextSelect.deviceId)}
 			/>
 		</>

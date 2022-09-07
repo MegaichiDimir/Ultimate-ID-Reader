@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from "react";
 import DropdownList from "react-widgets/DropdownList";
+import tw, { css } from 'twin.macro';
 
 type Props = {
 	setSelectDeviceId: React.Dispatch<React.SetStateAction<string>>
@@ -28,7 +29,7 @@ const VideoList: React.FC<Props> = (props) => {
 	
 	return (
 		<>
-			<DropdownList 
+			<DropdownList css={tw`my-4`}
 				data={videoDevices}
 				dataKey="deviceId"
 				textField="label"

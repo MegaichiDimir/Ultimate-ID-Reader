@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { css } from "twin.macro";
+import tw, { css } from "twin.macro";
 
 import ImgProc from "./process/ImgProc";
 import OcrProc from "./process/OcrProc";
@@ -18,16 +18,20 @@ const Ocr:React.FC<Props> = (props) => {
 	const [roomId, setRoomId] = useState<string>('');
 	return(
 		<>
-			<ImgProc
-				capImage = {props.capImage}
-				setOcrImage = {setOcrImage}
-			/>
-			<OcrProc
-				ocrImage = {ocrImage}
-				setRoomId = {setRoomId}
-			/>
-			<div>
-				<img src={ocrImage} alt="" />
+			<div css={tw`mx-auto`}>
+				<ImgProc
+					capImage = {props.capImage}
+					setOcrImage = {setOcrImage}
+				/>
+				<OcrProc
+					ocrImage = {ocrImage}
+					setRoomId = {setRoomId}
+				/>
+				<div css={[css`width: 244px; height:60px;`, tw`bg-gray-200`]}>
+					{ocrImage != '' &&
+						<img css={tw`w-full`} src={ocrImage} alt="" />
+					}
+				</div>
 				<p>ID: <span css={idTxt}>{roomId}</span></p>
 			</div>
 		</>

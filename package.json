@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "babelMacros": {
+    "twin": {
+      "preset": "emotion"
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
@@ -23,7 +28,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
-    "@babel/preset-env": "^7.18.10",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
     "@emotion/babel-preset-css-prop": "^11.10.0",

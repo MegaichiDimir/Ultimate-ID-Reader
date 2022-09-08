@@ -13,18 +13,8 @@ module.exports = {
 			{ 
 				/* TypeScriptのモジュール */
 				test: /\.(ts|tsx)$/,
-				use: [
-					{
-						loader: 'babel-loader',
-						options: { presets: ['@babel/preset-env', '@babel/react'] },
-					},
-					{
-						loader: 'ts-loader',
-						options: {
-							configFile: path.resolve(__dirname, 'tsconfig.json'),
-						},
-					},
-				]
+				exclude: /node_modules/,
+				loader: require.resolve('babel-loader'),
 			},
 			{ 
 				/* CSSのモジュール */

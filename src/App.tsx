@@ -1,24 +1,10 @@
 import React, { useState, useRef, useCallback } from "react";
 import tw, { css } from 'twin.macro'
-import { Global } from "@emotion/react";
 import "react-widgets/scss/styles.scss";
 import Webcam from "react-webcam";
 
 import Capture from "./features/capture/Capture";
 import Ocr from "./features/ocr/Ocr";
-
-const global = css`
-body {
-	font-family: "Helvetica Neue",
-		Arial,
-		"Hiragino Kaku Gothic ProN",
-		"Hiragino Sans",
-		"BIZ UDPGothic",
-		Meiryo,
-		sans-serif;
-}
-margin: 1em auto 0;
-`
 
 const App: React.FC = () => {
 	//const imageRef = useRef();
@@ -39,7 +25,6 @@ const App: React.FC = () => {
 
 	return(
 		<>
-			<Global styles={global} />
 			<div  css={[tw`container mx-auto max-w-screen-lg`, css`width: 640px;`]}>
 				<Capture 
 					setCapImage={setCapImage}
@@ -49,7 +34,7 @@ const App: React.FC = () => {
 				<Ocr
 					capImage={capImage}
 				/>
-				<button css={tw``} onClick={capture}>Read ID</button>
+				<button css={tw`bg-blue-500 text-white`} onClick={capture}>Read ID</button>
 				{/* <img src={capImage} alt="" /> */}
 			</div>
 		</>

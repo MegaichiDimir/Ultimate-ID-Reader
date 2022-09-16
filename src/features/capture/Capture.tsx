@@ -1,7 +1,6 @@
 import React, { useState, useRef, useCallback } from "react";
 import Webcam from "react-webcam";
 import tw,{ css } from "twin.macro";
-import App from "../../App";
 
 import VideoList from "./VideoList";
 
@@ -28,8 +27,7 @@ const Capture: React.FC<Props> = (props) => {
 	
 	return (
 		<>
-			<div css={tw`mx-auto max-w-screen-sm`}>
-				<div css={[css`width: 640px; height: 360px;`, tw`bg-gray-200`]}>
+				<div css={tw`bg-slate-200 w-full aspect-video`}>
 					{selectDeviceId != '' &&
 						<>
 							<Webcam
@@ -45,8 +43,8 @@ const Capture: React.FC<Props> = (props) => {
 									deviceId: selectDeviceId
 								}}
 								//表示上のサイズ
-								width={640}
-								height={360}
+								//width={640}
+								//height={360}
 							/>
 						</>
 					}
@@ -54,7 +52,6 @@ const Capture: React.FC<Props> = (props) => {
 				<VideoList
 					setSelectDeviceId={setSelectDeviceId}
 				/>
-			</div>
 		</>
 	);
 };

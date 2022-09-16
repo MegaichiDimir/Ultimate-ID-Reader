@@ -3,6 +3,7 @@ import tw, { css } from 'twin.macro'
 import "react-widgets/scss/styles.scss";
 import Webcam from "react-webcam";
 
+import Header from "./components/Header";
 import Capture from "./features/capture/Capture";
 import Ocr from "./features/ocr/Ocr";
 
@@ -26,6 +27,7 @@ const App: React.FC = () => {
 	return(
 		<>
 			<div  css={[tw`container mx-auto mt-4`, css``]}>
+				<Header />
 				<div css={tw`mx-auto flex flex-col lg:flex-row flex-wrap gap-4 items-stretch`}>
 					<div css={tw`mx-auto flex-1 lg:basis-1/3 w-full`}>
 						<Capture 

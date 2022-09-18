@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import tw, { css } from "twin.macro";
-import {MdContentCopy} from "react-icons/Md";
+import {MdContentCopy} from "react-icons/md";
 
 import ImgProc from "./process/ImgProc";
 import OcrProc from "./process/OcrProc";
@@ -12,6 +12,7 @@ type Props = {
 const Ocr:React.FC<Props> = (props) => {
 	const [ocrImage, setOcrImage] = useState<string>('');
 	const [roomId, setRoomId] = useState<string>('');
+
 	return(
 		<>
 			{/* 画像、OCR処理部分のみ */}
@@ -24,15 +25,15 @@ const Ocr:React.FC<Props> = (props) => {
 				setRoomId = {setRoomId}
 			/>
 
-			<div css={[css`width: 244px; height:60px;`, tw`bg-slate-200`]}>
+			<div css={[css``, tw`bg-slate-200 aspect-[244/60] w-full`]}>
 				{ocrImage != '' &&
 					<img css={tw`w-full`} src={ocrImage} alt="" />
 				}
 			</div>
 			<div css={tw`w-full flex gap-4 justify-center text-2xl py-4 grow`}>
-				<p css={tw`text-slate-800`}>ID: <input type="text" value={roomId} css={tw`border border-slate-300 rounded`}></input></p>
+				<p css={tw`w-full flex flex-row items-end gap-2`}>ID:<input type="text" value={roomId} css={tw`w-full border border-slate-200 rounded text-4xl px-3 py-1`}></input></p>
 				<button 
-					css={tw`grow-0 bg-green-500 hover:bg-green-400 text-white text-xl rounded px-1.5 py-1`} 
+					css={tw`grow-0 bg-green-500 hover:bg-green-400 text-white text-2xl rounded px-3 py-1`} 
 					onClick={() => navigator.clipboard.writeText(roomId)}
 				><MdContentCopy /></button>
 			</div>

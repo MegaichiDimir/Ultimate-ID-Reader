@@ -5,9 +5,7 @@ import tw,{ css } from "twin.macro";
 import VideoList from "./VideoList";
 
 type Props = {
-	setCapImage: React.Dispatch<React.SetStateAction<string>>
 	webcamRef: React.MutableRefObject<Webcam>
-	capture: VoidFunction
 }
 
 const Capture: React.FC<Props> = (props) => {

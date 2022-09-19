@@ -6,7 +6,7 @@ type Props = {
 	setRoomId: React.Dispatch<React.SetStateAction<string>>
 }
 
-const whitelist:string = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+const whitelist:string = '0123456789ABCDEFGHJKLMNPQRSTUVWXY'
 
 const OcrProc:React.FC<Props> = (props) => {
 	const firstRender = useRef(true);

@@ -17,7 +17,7 @@ const VideoList: React.FC<Props> = (props) => {
 				const getDevice = async () => {
 					const addList = (await navigator.mediaDevices.enumerateDevices())
 						.filter((device) => device.kind === 'videoinput');
-					console.log(addList);
+					// console.log(addList);
 					setVideoDevices(addList);
 				}
 				getDevice();

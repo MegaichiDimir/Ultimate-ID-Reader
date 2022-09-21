@@ -18,5 +18,4 @@
 	},
 	"files": ["src/types/twin.d.ts"],
 	"include": ["src/**/*"],
-	//"exclude": ["./node_modules"],
 }

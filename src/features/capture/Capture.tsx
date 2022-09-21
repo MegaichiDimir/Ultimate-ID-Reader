@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState } from "react";
 import Webcam from "react-webcam";
 import tw,{ css } from "twin.macro";
 
@@ -10,18 +10,6 @@ type Props = {
 
 const Capture: React.FC<Props> = (props) => {
 	const [selectDeviceId, setSelectDeviceId] = useState<string>('');
-	// const [capImage, setCapImage] = useState<string>('');
-
-	// const webcamRef = useRef<Webcam>(null!);
-	// const capture = useCallback(
-	// 	() => {
-	// 		const imageSrc = webcamRef.current.getScreenshot(); // imageSrcにBase64形式でpngを格納
-	// 		if(imageSrc){
-	// 			props.setCapImage(imageSrc);
-	// 		}
-	// 	},
-	// 	[webcamRef]
-	// );
 	
 	return (
 		<>
@@ -40,9 +28,6 @@ const Capture: React.FC<Props> = (props) => {
 									facingMode: "user",
 									deviceId: selectDeviceId
 								}}
-								//表示上のサイズ
-								//width={640}
-								//height={360}
 							/>
 						</>
 					}

@@ -11,13 +11,11 @@ module.exports = {
 	module: {
 		rules: [
 			{ 
-				/* TypeScriptのモジュール */
 				test: /\.(ts|tsx)$/,
 				exclude: /node_modules/,
 				loader: require.resolve('babel-loader'),
 			},
 			{ 
-				/* CSSのモジュール */
 				test: /\.scss$/,
 				use: [
 					{

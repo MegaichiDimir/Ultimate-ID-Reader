@@ -8,9 +8,7 @@ import Capture from "./features/capture/Capture";
 import Ocr from "./features/ocr/Ocr";
 
 const App: React.FC = () => {
-	//const imageRef = useRef();
 	const [capImage, setCapImage] = useState<string>('');
-	//const ReadBtnRef:React.MutableRefObject<void> = useRef();
 
 	const webcamRef = useRef<Webcam>(null!);
 	const capture = useCallback(

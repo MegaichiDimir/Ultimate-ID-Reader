@@ -15,7 +15,6 @@ const Ocr:React.FC<Props> = (props) => {
 
 	return(
 		<>
-			{/* 画像、OCR処理部分のみ */}
 			<ImgProc
 				capImage = {props.capImage}
 				setOcrImage = {setOcrImage}

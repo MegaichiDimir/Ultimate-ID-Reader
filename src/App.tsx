@@ -29,12 +29,12 @@ const App: React.FC = () => {
 			<Header />
 			<div css={tw`px-2 mt-4 text-slate-800`}>
 				<div css={tw`container mx-auto flex flex-col lg:flex-row flex-wrap gap-4 items-stretch`}>
-					<div css={tw`w-full lg:max-w-screen-sm mx-auto flex-1 lg:basis-[49%]`}>
+					<div css={tw`w-full mx-auto flex-1 lg:basis-[49%]`}>
 						<Capture 
 							webcamRef={webcamRef}
 						/> 
 					</div>
-					<div css={tw`lg:max-w-screen-sm w-full mx-auto flex flex-col items-stretch justify-between lg:basis-[49%]`}>
+					<div css={tw`w-full mx-auto flex flex-col items-stretch justify-between lg:basis-[49%]`}>
 						<div css={tw`w-full mx-auto flex flex-col items-center lg:gap-2`}>
 							<Ocr
 								capImage={capImage}

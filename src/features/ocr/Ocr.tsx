@@ -31,7 +31,7 @@ const Ocr:React.FC<Props> = (props) => {
 				}
 			</div>
 			<div css={tw`w-full flex gap-4 justify-center text-2xl py-4 grow`}>
-				<p css={tw`w-full flex flex-row items-end gap-2`}>ID:<input type="text" value={roomId} css={tw`w-full border border-slate-200 rounded text-4xl px-3 py-1`}></input></p>
+				<p css={tw`w-full flex flex-row items-end gap-2`}>ID:<input type="text" value={roomId} readOnly css={tw`w-full border border-slate-200 rounded text-4xl px-3 py-1`}></input></p>
 				<button 
 					css={tw`grow-0 bg-green-500 hover:bg-green-400 text-white text-2xl rounded px-3 py-1`} 
 					onClick={() => navigator.clipboard.writeText(roomId)}

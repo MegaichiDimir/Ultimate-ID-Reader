@@ -30,6 +30,7 @@ const OcrProc:React.FC<Props> = (props) => {
 			const { data: { text } } = await worker.recognize(props.ocrImage);
 			props.setRoomId(text);
 			await worker.terminate();
+			navigator.clipboard.writeText(text);
 		})();
 	},[props.ocrImage]);
 

@@ -39,7 +39,7 @@ const App: React.FC = () => {
 							/>
 						</div>
 						<button css={tw`bg-blue-500 hover:bg-blue-400 text-white text-2xl rounded px-4 py-3 lg:py-3 mb-4 flex-none`} onClick={capture}>
-							Read ID
+							Read & Copy
 						</button>
 					</div>
 				</div>

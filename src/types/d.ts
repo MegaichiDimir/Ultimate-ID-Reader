@@ -4,3 +4,6 @@ declare module '*.svg' {
 	const src: string;
 	export default src;
 }
+
+// test-mode only
+declare module "*.png"

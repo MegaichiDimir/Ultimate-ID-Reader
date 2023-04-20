@@ -3,37 +3,26 @@ import Webcam from "react-webcam";
 import tw,{ css } from "twin.macro";
 
 import VideoList from "./VideoList";
+import TestCapture from "./TestCapture";
 
 type Props = {
-	webcamRef: React.MutableRefObject<Webcam>
+	testImage: string;
+	setTestImage: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Capture: React.FC<Props> = (props) => {
-	const [selectDeviceId, setSelectDeviceId] = useState<string>('');
+const Capture: React.FC<Props> = ({ testImage, setTestImage }) => {
 	
 	return (
 		<>
 				<div css={tw`bg-slate-200 w-full aspect-video`}>
-					{selectDeviceId != '' &&
+					{testImage != '' &&
 						<>
-							<Webcam
-								audio={false}
-								imageSmoothing={false}
-								ref={props.webcamRef}
-								screenshotFormat={'image/png'}
-								forceScreenshotSourceSize
-								videoConstraints={{
-									width: 1920,
-									height: 1080,
-									facingMode: "user",
-									deviceId: selectDeviceId
-								}}
-							/>
+							<img src={testImage} alt="testImage" />
 						</>
 					}
 				</div>
-				<VideoList
-					setSelectDeviceId={setSelectDeviceId}
+				<TestCapture
+					setTestImage={setTestImage}
 				/>
 		</>
 	);

@@ -9,16 +9,17 @@ import Ocr from "./features/ocr/Ocr";
 
 const App: React.FC = () => {
 	const [capImage, setCapImage] = useState<string>('');
+	const [testImage, setTestImage] = useState<string>('');
 
-	const webcamRef = useRef<Webcam>(null!);
+
 	const capture = useCallback(
 		() => {
-			const imageSrc = webcamRef.current.getScreenshot(); // imageSrcにBase64形式でpngを格納
+			const imageSrc = testImage;
 			if(imageSrc){
 				setCapImage(imageSrc);
 			}
 		},
-		[webcamRef]
+		[testImage]
 );
 
 
@@ -29,7 +30,8 @@ const App: React.FC = () => {
 				<div css={tw`container mx-auto flex flex-col lg:flex-row flex-wrap gap-4 items-stretch`}>
 					<div css={tw`w-full mx-auto flex-1 lg:basis-[49%]`}>
 						<Capture 
-							webcamRef={webcamRef}
+							testImage={testImage}
+							setTestImage={setTestImage}
 						/> 
 					</div>
 					<div css={tw`w-full mx-auto flex flex-col items-stretch justify-between lg:basis-[49%]`}>

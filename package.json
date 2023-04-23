@@ -26,7 +26,7 @@
     "react-icons": "^4.4.0",
     "react-webcam": "^7.0.1",
     "react-widgets": "^5.8.4",
-    "tesseract.js": "^3.0.3"
+    "tesseract.js": "^4.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",

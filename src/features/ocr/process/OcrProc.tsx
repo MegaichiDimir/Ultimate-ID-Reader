@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { createWorker } from "tesseract.js";
+import Tesseract, { createWorker } from "tesseract.js";
 
 type Props = {
 	ocrImage: string
@@ -16,22 +16,23 @@ const OcrProc:React.FC<Props> = (props) => {
 			firstRender.current = false;
 			return;
 		}
-
-		const worker = createWorker({
-			logger: m => console.log(m)
-		});
-		(async () => {
-			await worker.load();
-			await worker.loadLanguage('eng');
-			await worker.initialize('eng');
-			await worker.setParameters({
-				tessedit_char_whitelist: whitelist,
+		const imageToText = async () => {
+			const worker = await createWorker({
+				logger: m => console.log(m)
 			});
-			const { data: { text } } = await worker.recognize(props.ocrImage);
-			props.setRoomId(text);
-			await worker.terminate();
-			navigator.clipboard.writeText(text);
-		})();
+			(async () => {
+				await worker.loadLanguage('eng');
+				await worker.initialize('eng');
+				await worker.setParameters({
+					tessedit_char_whitelist: whitelist,
+				});
+				const { data: { text } } = await worker.recognize(props.ocrImage);
+				props.setRoomId(text);
+				await worker.terminate();
+				navigator.clipboard.writeText(text);
+			})();
+		}
+		imageToText();
 	},[props.ocrImage]);
 
 	return(
